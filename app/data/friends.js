@@ -1,4 +1,4 @@
-const friends = {
+const friends = [
 	{
 	  "name":"Dominic",
 	  "photo":"https://i.ebayimg.com/images/g/1UwAAOxy~g5RwE8B/s-l300.jpg",
@@ -92,4 +92,4 @@ const friends = {
 	      3
 	    ]
 	}
-}
+]

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Friend Finder Survey</title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="assets/reset.css">
+		<link 
+			rel="stylesheet" 
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+			integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+		<link rel="stylesheet" type="text/css" href="assets/style.css" />
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<script 
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+			crossorigin="anonymous"></script>
+		<script 
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+			crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Survey Questions</h1>
+			<hr />
+			<h3>Name (Required)</h3>
+			<input type="text" name="nameInput" id="nameInput" class="text-bars" />
+			<br />
+			<br />
+			<h3>Link to Photo (Required)</h3>
+			<input type="text" name="imgInput" id="imgInput" class="text-bars" value="" />
+			<hr />
+			<h3>Question 1</h3>
+			<h4>You find it difficult to introduce yourself to other people.</h4>
+			<select id="surveyAnswer1" class="survey-answer">
+				<option value="" selected>Select an Option</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+			<h3>Question 2</h3>
+			<h4>You rarely do something just out of sheer curiosity.</h4>
+			<select id="surveyAnswer2" class="survey-answer">
+				<option value="" selected>Select an Option</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+			<h3>Question 3</h3>
+			<h4>Being organized is more important to you than being adaptable.</h4>
+			<select id="surveyAnswer3" class="survey-answer">
+				<option value="" selected>Select an Option</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+			<h3>Question 4</h3>
+			<h4>You are usually highly motivated and energetic.</h4>
+			<select id="surveyAnswer4" class="survey-answer">
+				<option value="" selected>Select an Option</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+			<h3>Question 5</h3>
+			<h4>Your mood can change very quickly.</h4>
+			<select id="surveyAnswer5" class="survey-answer">
+				<option value="" selected>Select an Option</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+			<h3>Question 6</h3>
+			<h4>An interesting book or a video game is often better than a social event.</h4>
+			<select id="surveyAnswer6" class="survey-answer">
+				<option value="" selected>Select an Option</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+			<h3>Question 7</h3>
+			<h4>You are more of a natural improviser than a careful planner.</h4>
+			<select id="surveyAnswer7" class="survey-answer">
+				<option value="" selected>Select an Option</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+			<h3>Question 8</h3>
+			<h4>Your emotions control you more than you control them.</h4>
+			<select id="surveyAnswer8" class="survey-answer">
+				<option value="" selected>Select an Option</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+			<h3>Question 9</h3>
+			<h4>You often contemplate the reasons for human existence.</h4>
+			<select id="surveyAnswer9" class="survey-answer">
+				<option value="" selected>Select an Option</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+			<h3>Question 10</h3>
+			<h4>if your friend is sad about something, you are more likely to offer emotional support than suggest ways to deal with the problem.</h4>
+			<select id="surveyAnswer10" class="survey-answer">
+				<option value="" selected>Select an Option</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+			<hr />
+			<button id="submitBtn" type="button" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Submit</button>
+			<br/>
+			<a href="api/friendslist">API Friends List</a> | <a href="https://github.com/estivensal7/FriendFinder.git" target="_blank">Github Repo</a>
+			<br />
+		</div>
+
+		<div class="modal" tableindex="-1" id="myModal" role="dialog" data-backdrop="false">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h1 class="modal-title">Best Match</h1>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <h2 id="friendName"></h2>
+		        <img id="friendPic" src="" class="friend-img" />
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+	</body>
+	<script type="text/javascript" src="assets/javascript.js"></script>
+</html>

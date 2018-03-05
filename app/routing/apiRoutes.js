@@ -3,22 +3,30 @@
 
 //Depenencies
 const friendsDb = require('../data/friends.js');
+const path = require('path');
+const express = require('express');
 
+const app = express();
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //Routes
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //Setting the file to be ready to export with post and get methods inside of a function
 
-module.exports = function(app) {
+module.exports = function() {
+
+	//retrieving information for get method from friendsDb
+	app.get(friendsDb, function(req, res) {
+		return res.json(friends);
+	});
 
 	//once a user submits data to add a new "friend".. we will send it to the friends.js file
-	app.post('/app/data/friends.js', function(req, res) {
+	app.post(friendsDb, function(req, res) {
 
 		let bestFriend = {
 			name: "",
-			photo: "";
-			friendDiff: 1000;
+			photo: "",
+			friendDiff: 1000
 		};
 
 		let userData = req.body;
@@ -52,3 +60,4 @@ module.exports = function(app) {
 	});
 }
 
+module.exports();
