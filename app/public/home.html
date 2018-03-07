@@ -3,17 +3,17 @@
 <head>
 	<title>Friend Finder</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="assets/reset.css" />
 		<link 
 			rel="stylesheet" 
 			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
 			integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="./assets/style.css" />
 		<script
 		  src="https://code.jquery.com/jquery-3.3.1.min.js"
 		  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 		  crossorigin="anonymous"></script>
+		<link rel="stylesheet" type="text/css" href="assets/reset.css" />
+		<link rel="stylesheet" type="text/css" href="assets/style.css" />
 </head>
 
 <body>
@@ -26,10 +26,79 @@
 			<p class="font-weight-bold">Looking to meet cool people to hang out with? Take a short survey and we'll find your best friend! It only takes a few minutes.</p>
 			<a class="btn btn-primary btn-lg" href="survey" role="button"><i class = "fa fa-list-ol"></i> Take Survey!</a>
 		</div>
-	<a href="../data/friends.js">API Friends List</a> | <a href="https://github.com/estivensal7/FriendFinder.git" target="_blank">Github Repo</a>
+	<a href="/api/friendsList">API Friends List</a> | <a href="https://github.com/estivensal7/FriendFinder.git" target="_blank">Github Repo</a>
 </div>
 
-<script type="text/javascript" src="assets/javascript.js"></script>
+
+<!-- <script type="text/javascript">
+	$(document).ready(function() {
+	//creating on click function for submit button
+	$('#submitBtn').on('click', function() {
+
+		//declaring function to check if information regarding name and photo are valid
+		const validateForm = () => {
+			let isValid = true;
+			//runs through each value to check if not valid
+			$('.text-bars').each(function() {
+				if ($(this).val() === '') {
+					isValid = false;
+				}
+			});
+
+			//runs through each question to check if each has been answered
+			$('.survey-answer').each(function() {
+				if ($(this).val() === '') {
+					isValid = false;
+				}
+			});
+
+			//returns if isValid is true
+			return isValid;
+		}
+
+		//if validateForm function is true...
+		if (validateForm()) {
+
+			//beginning to declare values for each part of friend object/array
+			const newFriend = {
+				name: $('#nameInput').val(),
+				photo: $('#imgInput').val(),
+				scores: [
+					$("#surveyAnswer1").val(),
+					$("#surveyAnswer2").val(),
+					$("#surveyAnswer3").val(),
+					$("#surveyAnswer4").val(),
+					$("#surveyAnswer5").val(),
+					$("#surveyAnswer6").val(),
+					$("#surveyAnswer7").val(),
+					$("#surveyAnswer8").val(),
+					$("#surveyAnswer9").val(),
+					$("#surveyAnswer10").val(),
+				]
+			}
+
+			//post method used to communicate with api
+			$.post('/api/findFriend', newFriend)
+			.then(function(data) {
+				console.log(data);
+
+				//grabbing information to display on modal
+				$('#friendName').text(data.name);
+				$('#friendPic').attr('src', data.photo);
+			});
+
+			$('#myModal').modal({
+				backdrop: 'show'
+			});
+			$('.modal-backdrop').addClass('fade-in');
+		}
+		//if validateForm function is not valid, alert the user to finish completing information, and questions
+		else {
+			alert('Please complete all information requests, and questions before submitting.')
+		}
+	});
+	});
+</script> -->
 
 </body>
 </html>

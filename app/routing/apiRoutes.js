@@ -1,63 +1,64 @@
 //This file sets routes for displaying and saving data to the database
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 //Depenencies
-const friendsDb = require('../data/friends.js');
 const path = require('path');
-const express = require('express');
-
-const app = express();
+// const express = require('express');
+// const app = express();
+const friendsDb = require('../data/friends.js');
+const bodyParser = require('body-parser');
+// const fs = require('fs');
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //Routes
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 //Setting the file to be ready to export with post and get methods inside of a function
+module.exports = function(app) {
+    //retrieving information for get method from friendsDb
+    app.get("/api/friendsList", function(req, res) {
+       	res.json(friendsDb);
+    });
 
-module.exports = function() {
+    //once a user submits data to add a new "friend".. we will send it to the friends.js file
+    app.post("/api/findFriend", function(req, res) {
+        let bestFriend = {
+            name: "",
+            photo: "",
+            friendDiff: 1000
+        };
 
-	//retrieving information for get method from friendsDb
-	app.get(friendsDb, function(req, res) {
-		return res.json(friends);
-	});
+        let userData = req.body;
+        let userScores = userData.scores;
 
-	//once a user submits data to add a new "friend".. we will send it to the friends.js file
-	app.post(friendsDb, function(req, res) {
+        let totalDiff;
 
-		let bestFriend = {
-			name: "",
-			photo: "",
-			friendDiff: 1000
-		};
+        // console.log(userScores);
+        //looping through the friendsDb to compare scores
+        for (let i = 0; i < friendsDb.length; i++) {
+            var currentFriend = friendsDb[i];
+            totalDiff = 0;
 
-		let userData = req.body;
-		let userScores = userData.scores;
-		let totalDiff = 0;
 
-		//looping through the friendsDb to compare scores
-		for(let i = 0; i < friendsDb.length; i++) {
+            //looping through the scores of each friend to find best match
+            for (let j = 0; j < currentFriend.scores.length; j++) {
+                var currentFriendScore = currentFriend.scores[j];
+                var currentUserSore = userScores[j];
 
-			totalDiff = 0;
+                //calculating differences between friends' scores and summing them into the totalDiff
+                totalDiff += Math.abs(parseInt(currentUserScore) - parseInt(currentFriendScore));
 
-			//looping through the scores of each friend to find best match
-			for(let j = 0; j < friends[i].scores[j]; j++) {
+                }
 
-				//calculating differences between friends' scores and summing them into the totalDiff
-				totalDiff += math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
+                //finding the best match
+                if (totalDiff <= bestFriend.friendDifference) {
 
-				//finding the best match
-				if (totalDiff <= bestFriend.friendDifference) {
-					bestFriend.name = friends[i].name;
-					bestFriend.photo = friends[i].photo;
-					bestFriend.friendDifference = totalDiff;
-				}
-			}
-		}
+                    bestFriend.name = currentFriend.name;
+                    bestFriend.photo = currentFriend.photo;
+                    bestFriend.friendDifference = totalDiff;
+                }
+            }
 
-		//pushing userData to to friends DB
-		friends.push(userData);
+            //pushing userData to to friends DB
+            friends.push(userData);
 
-		res.json(bestFriend);
-	});
+            res.json(bestFriend);
+        });
 }
-
-module.exports();
