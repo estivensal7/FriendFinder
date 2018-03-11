@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 //setting up express to handle data parsing 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(express.static("public"));
+app.use(express.static("app/public"));
 
 //Informing and pointing the server to a series of route files used in the project
 app.use('/', htmlRoutes);

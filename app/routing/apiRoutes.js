@@ -17,48 +17,41 @@ module.exports = function(app) {
        	res.json(friendsDb);
     });
 
-    //once a user submits data to add a new "friend".. we will send it to the friends.js file
-    app.post("/api/findFriend", function(req, res) {
-        let bestFriend = {
-            name: "",
-            photo: "",
-            friendDiff: 1000
-        };
+	//once a user submits data to add a new "friend".. we will send it to the friends.js file
+	app.post("/api/findFriend", function(req, res) {
 
-        let userData = req.body;
-        let userScores = userData.scores;
+	        let userData = req.body;
+	        let userScores = userData['scores[]'];
+	        let bestFriend = {
+	        	name: userData.name,
+	        	photo: userData.photo,
+	        	scores: userScores
+	        }
 
-        let totalDiff;
+	        
 
-        // console.log(userScores);
-        //looping through the friendsDb to compare scores
-        for (let i = 0; i < friendsDb.length; i++) {
-            var currentFriend = friendsDb[i];
-            totalDiff = 0;
+	        let totalDiff = 1000
+	        let friendsScores = [];
+	        let bestMatch = [];
 
 
-            //looping through the scores of each friend to find best match
-            for (let j = 0; j < currentFriend.scores.length; j++) {
-                var currentFriendScore = currentFriend.scores[j];
-                var currentUserSore = userScores[j];
+	        friendsDb.forEach((friend) => {
+	        	let compArray = [];
 
-                //calculating differences between friends' scores and summing them into the totalDiff
-                totalDiff += Math.abs(parseInt(currentUserScore) - parseInt(currentFriendScore));
+	        	friend.scores.forEach((score) => {
+	        		let i = 0;
+					let matchScores = Math.abs(parseInt(score) - bestFriend.scores[i]);
+					compArray.push(matchScores);
+					i++;	        		
+	        	})
+	        	let compareScores = compArray.reduce((a,b) => a + b, 0);
+	        	bestMatch.push(compareScores);
+	        	compArray = [];
+	        })
 
-                }
-
-                //finding the best match
-                if (totalDiff <= bestFriend.friendDifference) {
-
-                    bestFriend.name = currentFriend.name;
-                    bestFriend.photo = currentFriend.photo;
-                    bestFriend.friendDifference = totalDiff;
-                }
-            }
-
-            //pushing userData to to friends DB
-            friends.push(userData);
-
-            res.json(bestFriend);
-        });
+	        const returnedMatch = bestMatch.indexOf(Math.min.apply(Math, bestMatch));
+	        res.json(friendsDb[returnedMatch]);
+	        friendsDb.push(bestFriend);
+	    })
 }
+

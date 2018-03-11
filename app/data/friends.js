@@ -1,8 +1,8 @@
 const friends = [
 	{
-	  "name":"Dominic",
-	  "photo":"https://i.ebayimg.com/images/g/1UwAAOxy~g5RwE8B/s-l300.jpg",
-	  "scores":[
+	  name:"Dominic",
+	  photo:"https://i.ebayimg.com/images/g/1UwAAOxy~g5RwE8B/s-l300.jpg",
+	  scores:[
 	      3,
 	      2,
 	      1,
@@ -16,9 +16,9 @@ const friends = [
 	    ]
 	},
 	{
-	  "name":"Brian",
-	  "photo":"https://function88.files.wordpress.com/2013/12/modp_1102_05_oskylineposing.jpg?w=620&h=465&crop=1",
-	  "scores":[
+	  name:"Brian",
+	  photo:"https://function88.files.wordpress.com/2013/12/modp_1102_05_oskylineposing.jpg?w=620&h=465&crop=1",
+	  scores:[
 	      1,
 	      4,
 	      2,
@@ -31,9 +31,9 @@ const friends = [
 	      1
 	    ]
 	},{
-	  "name":"Luke",
-	  "photo":"https://a.wattpad.com/cover/42634211-352-k665739.jpg",
-	  "scores":[
+	  name:"Luke",
+	  photo:"https://a.wattpad.com/cover/42634211-352-k665739.jpg",
+	  scores:[
 	      5,
 	      1,
 	      4,
@@ -46,9 +46,9 @@ const friends = [
 	      1
 	    ]
 	},{
-	  "name":"Letty",
-	  "photo":"https://data.whicdn.com/images/197170435/original.jpg",
-	  "scores":[
+	  name:"Letty",
+	  photo:"https://data.whicdn.com/images/197170435/original.jpg",
+	  scores:[
 	      4,
 	      4,
 	      1,
@@ -61,9 +61,9 @@ const friends = [
 	      2
 	    ]
 	},{
-	  "name":"Gisele",
-	  "photo":"https://i.ytimg.com/vi/Oke0jZm8IcY/maxresdefault.jpg",
-	  "scores":[
+	  name:"Gisele",
+	  photo:"https://i.ytimg.com/vi/Oke0jZm8IcY/maxresdefault.jpg",
+	  scores:[
 	      2,
 	      3,
 	      1,
@@ -77,9 +77,9 @@ const friends = [
 	    ]
 	},
 	{
-	  "name":"Mia",
-	  "photo":"http://vignette2.wikia.nocookie.net/david-ayer/images/b/b1/David_Ayer_wiki-_Mia_%28Jordana_Brewster%29_in_F%26F_%282001_original%29.png/revision/latest?cb=20151111045851",
-	  "scores":[
+	  name:"Mia",
+	  photo:"http://vignette2.wikia.nocookie.net/david-ayer/images/b/b1/David_Ayer_wiki-_Mia_%28Jordana_Brewster%29_in_F%26F_%282001_original%29.png/revision/latest?cb=20151111045851",
+	  scores:[
 	      3,
 	      4,
 	      5,
